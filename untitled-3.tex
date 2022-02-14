@@ -1,11 +1,12 @@
 \documentclass[11pt]{article}
 
 \newcommand{\numpy}{{\tt numpy}}    % tt font for numpy
+\usepackage{amsmath,amssymb}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{graphicx}
-\topmargin -1.75in
-\textheight 11in
+\topmargin -1.in
+\textheight 10in
 \oddsidemargin -.75in
 \evensidemargin -.75in
 \textwidth 7in
@@ -25,45 +26,78 @@
   \label{fig:boat1}
 \end{figure}
 
-To start the coordinate transformation from the detector plane to the show plane, the unit vector of the incoming shower is to be needs to be described in the detector plane co-ordinates noting the zenith angle $\theta$  and the azimuth angle $\phi$. The shower $\mathbf{-\hat{V}}$ is then set to be the new zenith via the following transformation:
+To start the coordinate transformation from the detector plane to the show plane, the unit vector of the velocity of the incoming shower is to be  described in the detector plane co-ordinates noting the zenith angle $\theta$ with respect to the positive z-axis and the azimuth angle $\phi$ taken with respect to the positive x-axis  . The $\mathbf{-\hat{v}}$ is then set to be the new zenith via the following transformation where $|\hat{v}|$ is the length of the velocity vector:
 \begin{equation}
-   \mathbf{-\hat{V}} = \frac{-1}{\left|V\right|}\left(
+    \mathbf{\hat{z}'}=\mathbf{-\hat{v}} = \frac{-1}{\left|\vec{v}\right|}\left(
     \begin{array}{c}
-    V\sin\theta \cos\phi \\ 	
-    V\sin\theta \sin\phi \\ 
-    V\cos\theta \\
+    v\sin\theta \cos\phi \\ 	
+    v\sin\theta \sin\phi \\ 
+    v\cos\theta \\
 \end{array} 
 \right)
 \end{equation}
 
-To generate a second axis that is perpendicular to both the $\mathbf{\hat{B}}$ and and magnetic field  $\mathbf{\hat{B}}$, we get a cross product of both unit vectors.
 
-\begin{equation}
-    \mathbf{-\hat{V}}\times \mathbf{\hat{B}} = \left(
-    \begin{array}{ccc}
-    i & j & k \\ 	
-   - \sin\theta \cos\phi & -\sin\theta \sin\phi  & -\cos\theta \\ 
-    \frac{ B_x}{\left|B\right|}& \frac{ B_y}{\left|B\right|} &\frac{ B_z}{\left|B\right|}\\
-\end{array} 
-\right)
-\end{equation}
 
-The magnetic field unit $\mathbf{\hat{B}}$ vector can be written out more explicitly as:
+The magnetic field unit $\mathbf{\hat{B}}$ vector can be written out explicitly as:
 \begin{equation}
-   \mathbf{\hat{B}}=\frac{1}{\left|B\right|} \left(
+   \mathbf{\hat{B}}=\frac{1}{\left|\vec{B}\right|} \left(
     \begin{array}{c}
-    -B\sin\theta_B \\ 	
-    0\\ 
+    B\sin\theta_B \\ 	
+    B\sin\theta_B\\ 
     B\cos\theta_B \\
 \end{array} 
 \right),  \mbox{  where $\theta_B$ is the magnetic field inclination angle.}
 \end{equation}
 
-Considering negligible contribution in the y axis. The third axis is then a cross product of   $\mathbf{-\hat{V}}$ and $\mathbf{-\hat{V}}\times \mathbf{\hat{B}}$ to create a 3rd mutually perpendicular axis to both $\mathbf{-\hat{V}}$ and $\mathbf{-\hat{V}}\times \mathbf{\hat{B}}$ i.e. $\mathbf{-\hat{V}} \times\mathbf{-\hat{V}}\times \mathbf{\hat{B}}$. In an orientation that will give rise to the relationship $\mathbf{-\hat{V}} \times \left( \mathbf{-\hat{V}} \times\mathbf{-\hat{V}}\times \mathbf{\hat{B}}\right) = \mathbf{-\hat{V}}\times \mathbf{\hat{B}} $ , $\left(\mathbf{-\hat{V}}\times \mathbf{\hat{B}}\right) \times \left( \mathbf{-\hat{V}} \times\mathbf{-\hat{V}}\times \mathbf{\hat{B}}\right) = \mathbf{-\hat{V}}$ or check for orthogonality via the dot product that must equal 0.
+To generate a second axis that is perpendicular to both the $\mathbf{\hat{v}}$ and and magnetic field  $\mathbf{\hat{B}}$, we get the cross product of both unit vectors.
 
+\begin{equation}
+    \mathbf{\hat{x}'} =\mathbf{-\hat{v}}\times \mathbf{\hat{B}} = det \left(
+    \begin{array}{ccc}
+    i & j & k \\ 	
+   - \sin\theta \cos\phi & -\sin\theta \sin\phi  & -\cos\theta \\ 
+     \sin\theta_B& \sin\theta_B & \cos\theta_B\\
+\end{array} 
+\right)
+\end{equation}
+
+\begin{equation}
+   \mathbf{\hat{x}'}=\left(
+    \begin{array}{c}
+    -\sin\theta\sin\phi\cos\theta_B + \cos\theta\sin\theta_B\\ 	
+    -\cos\theta\sin\theta_B+\sin\theta\cos\phi\cos\theta_B\\ 
+    -\sin\theta\cos\phi\sin\theta_B+\sin\theta\sin\phi\sin\theta_B \\
+\end{array} 
+\right) 
+\end{equation}
+
+The third axis is then a cross product of   $\mathbf{-\hat{v}}$ and $\mathbf{-\hat{v}}\times \mathbf{\hat{B}}$ ,this creates a 3rd mutually perpendicular axis to both $\mathbf{-\hat{v}}$ and $\mathbf{-\hat{v}}\times \mathbf{\hat{B}}$ i.e. $\mathbf{-\hat{v}} \times\mathbf{-\hat{v}}\times \mathbf{\hat{B}}$. 
+
+\small
+\begin{equation}
+    \mathbf{\hat{y}'}=\mathbf{-\hat{v}}\times \mathbf{-\hat{v}\times\hat{B} } = det \left(
+    \begin{array}{ccc}
+    i & j & k \\ 	
+   - \sin\theta \cos\phi & -\sin\theta \sin\phi  & -\cos\theta \\ 
+      -\sin\theta\sin\phi\cos\theta_B + \cos\theta\sin\theta_B&  -\cos\theta\sin\theta_B+\sin\theta\cos\phi\cos\theta_B &  -\sin\theta\cos\phi\sin\theta_B+\sin\theta\sin\phi\sin\theta_B\\
+\end{array} 
+\right)
+\end{equation}
 % ========== Continue adding items as needed
 
+\begin{equation}
+   \mathbf{\hat{y}'}=\left(
+    \begin{array}{c}
+     (-\sin\theta \sin\phi )*(-\sin\theta\cos\phi\sin\theta_B+\sin\theta\sin\phi\sin\theta_B)-     (\cos\theta)  *(-\cos\theta\sin\theta_B+\sin\theta\cos\phi\cos\theta_B )   \\ 
+(-\sin\theta \cos\phi )(-\sin\theta\cos\phi\sin\theta_B+\sin\theta\sin\phi\sin\theta_B )+(-\cos\theta)*( -\sin\theta\sin\phi\cos\theta_B + \cos\theta\sin\theta_B)\\
+ 
+    (-\sin\theta \cos\phi )*(-\cos\theta\sin\theta_B+\sin\theta\cos\phi\cos\theta_B)-(-\sin\theta \sin\phi )*(-\sin\theta\sin\phi\cos\theta_B + \cos\theta\sin\theta_B)
+\end{array} 
+\right) 
+\end{equation}
 
+In an orientation that will give rise to the relationship $\mathbf{-\hat{v}} \times \left( \mathbf{-\hat{v}} \times\mathbf{-\hat{v}}\times \mathbf{\hat{B}}\right) = \mathbf{-\hat{v}}\times \mathbf{\hat{B}} $ , $\left(\mathbf{-\hat{v}}\times \mathbf{\hat{B}}\right) \times \left( \mathbf{-\hat{v}} \times\mathbf{-\hat{v}}\times \mathbf{\hat{B}}\right) = \mathbf{-\hat{v}}$ or $\hat{x}' \times \hat{y}'=\hat{z}' $ and can be tested for orthogonality via the dot product = 0 test.
 \end{document}
 \grid
 \grid
