@@ -26,9 +26,9 @@
   \label{fig:boat1}
 \end{figure}
 
-To start the coordinate transformation from the detector plane to the show plane, the unit vector of the velocity of the incoming shower is to be  described in the detector plane co-ordinates noting the zenith angle $\theta$ with respect to the positive z-axis and the azimuth angle $\phi$ taken with respect to the positive x-axis  . The $\mathbf{-\hat{v}}$ is then set to be the new zenith via the following transformation where $|\hat{v}|$ is the length of the velocity vector:
+To start the coordinate transformation from the detector plane to the show plane, the unit vector of the velocity of the incoming shower is to be  described in the detector plane co-ordinates noting the zenith angle $\theta$ with respect to the positive z-axis and the azimuth angle $\phi$ taken with respect to the positive x-axis  . The $\mathbf{-\hat{v}}$ is then set to be the new zenith via the following transformation where $\mathbf{|\vec{v}|}$ is the length of the velocity vector:
 \begin{equation}
-    \mathbf{\hat{z}'}=\mathbf{-\hat{v}} = \frac{-1}{\left|\vec{v}\right|}\left(
+    \mathbf{\hat{z}'}=\mathbf{-\hat{v}} = \frac{-1}{\left|\mathbf{\vec{v}}\right|}\left(
     \begin{array}{c}
     v\sin\theta \cos\phi \\ 	
     v\sin\theta \sin\phi \\ 
@@ -41,13 +41,13 @@ To start the coordinate transformation from the detector plane to the show plane
 
 The magnetic field unit $\mathbf{\hat{B}}$ vector can be written out explicitly as:
 \begin{equation}
-   \mathbf{\hat{B}}=\frac{1}{\left|\vec{B}\right|} \left(
+   \mathbf{\hat{B}}=\frac{1}{\mathbf{|\vec{B}|}} \left(
     \begin{array}{c}
-    B\sin\theta_B \\ 	
-    B\sin\theta_B\\ 
-    B\cos\theta_B \\
+    B\sin\theta \cos\phi \\ 	
+    B\sin\theta \sin\phi \\ 
+    B\cos\theta \\
 \end{array} 
-\right),  \mbox{  where $\theta_B$ is the magnetic field inclination angle.}
+\right),  %\mbox{  where $\theta_B$ is the magnetic field inclination angle.}
 \end{equation}
 
 To generate a second axis that is perpendicular to both the $\mathbf{\hat{v}}$ and and magnetic field  $\mathbf{\hat{B}}$, we get the cross product of both unit vectors.
@@ -57,7 +57,7 @@ To generate a second axis that is perpendicular to both the $\mathbf{\hat{v}}$ a
     \begin{array}{ccc}
     i & j & k \\ 	
    - \sin\theta \cos\phi & -\sin\theta \sin\phi  & -\cos\theta \\ 
-     \sin\theta_B& \sin\theta_B & \cos\theta_B\\
+     \sin\theta \cos\phi& \sin\theta \sin\phi  & \cos\theta\\
 \end{array} 
 \right)
 \end{equation}
@@ -65,9 +65,9 @@ To generate a second axis that is perpendicular to both the $\mathbf{\hat{v}}$ a
 \begin{equation}
    \mathbf{\hat{x}'}=\left(
     \begin{array}{c}
-    -\sin\theta\sin\phi\cos\theta_B + \cos\theta\sin\theta_B\\ 	
-    -\cos\theta\sin\theta_B+\sin\theta\cos\phi\cos\theta_B\\ 
-    -\sin\theta\cos\phi\sin\theta_B+\sin\theta\sin\phi\sin\theta_B \\
+   0\\ 	
+    -\sin\theta\sin\phi\cos\theta+\sin\theta\cos\theta\cos\phi\\ 
+    \sin^2\theta\sin^2\phi - \sin^2\theta\sin\phi\cos\phi \\
 \end{array} 
 \right) 
 \end{equation}
@@ -80,7 +80,7 @@ The third axis is then a cross product of   $\mathbf{-\hat{v}}$ and $\mathbf{-\h
     \begin{array}{ccc}
     i & j & k \\ 	
    - \sin\theta \cos\phi & -\sin\theta \sin\phi  & -\cos\theta \\ 
-      -\sin\theta\sin\phi\cos\theta_B + \cos\theta\sin\theta_B&  -\cos\theta\sin\theta_B+\sin\theta\cos\phi\cos\theta_B &  -\sin\theta\cos\phi\sin\theta_B+\sin\theta\sin\phi\sin\theta_B\\
+     0& -\sin\theta\sin\phi\cos\theta+\sin\theta\cos\theta\cos\phi &  \sin^2\theta\sin^2\phi - \sin^2\theta\sin\phi\cos\phi \\
 \end{array} 
 \right)
 \end{equation}
@@ -89,15 +89,15 @@ The third axis is then a cross product of   $\mathbf{-\hat{v}}$ and $\mathbf{-\h
 \begin{equation}
    \mathbf{\hat{y}'}=\left(
     \begin{array}{c}
-     (-\sin\theta \sin\phi )*(-\sin\theta\cos\phi\sin\theta_B+\sin\theta\sin\phi\sin\theta_B)-     (\cos\theta)  *(-\cos\theta\sin\theta_B+\sin\theta\cos\phi\cos\theta_B )   \\ 
-(-\sin\theta \cos\phi )(-\sin\theta\cos\phi\sin\theta_B+\sin\theta\sin\phi\sin\theta_B )+(-\cos\theta)*( -\sin\theta\sin\phi\cos\theta_B + \cos\theta\sin\theta_B)\\
- 
-    (-\sin\theta \cos\phi )*(-\cos\theta\sin\theta_B+\sin\theta\cos\phi\cos\theta_B)-(-\sin\theta \sin\phi )*(-\sin\theta\sin\phi\cos\theta_B + \cos\theta\sin\theta_B)
+     -(\sin^2\theta\sin^2\phi - \sin^2\theta\sin\phi\cos\phi)\sin\theta\sin\phi + (-\sin\theta\sin\phi\cos\theta + \sin\theta\cos\theta\cos\phi)\cos\theta  \\ 
+
+(\sin^2\theta\sin^2\phi - \sin^2\theta\sin\phi\cos\phi)\sin\theta\cos\phi\\
+-(-\sin\theta\sin\phi\cos\theta + \sin\theta\cos\theta\cos\phi)\sin\theta\cos\phi
 \end{array} 
 \right) 
 \end{equation}
 
-In an orientation that will give rise to the relationship $\mathbf{-\hat{v}} \times \left( \mathbf{-\hat{v}} \times\mathbf{-\hat{v}}\times \mathbf{\hat{B}}\right) = \mathbf{-\hat{v}}\times \mathbf{\hat{B}} $ , $\left(\mathbf{-\hat{v}}\times \mathbf{\hat{B}}\right) \times \left( \mathbf{-\hat{v}} \times\mathbf{-\hat{v}}\times \mathbf{\hat{B}}\right) = \mathbf{-\hat{v}}$ or $\hat{x}' \times \hat{y}'=\hat{z}' $ and can be tested for orthogonality via the dot product = 0 test.
+In an orientation that will give rise to the relationship $\mathbf{\hat{z}} '\times \mathbf{\hat{y}} '= \mathbf{-\hat{x}}'$  and $\mathbf{\hat{x}' \times \hat{y}'=\hat{z}}' $ and can be tested for orthogonality via the dot product = 0 test.
 \end{document}
 \grid
 \grid
