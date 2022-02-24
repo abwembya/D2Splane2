@@ -102,8 +102,52 @@ In an orientation that will give rise to the relationship $\mathbf{\hat{z}} '\ti
 \end{array} 
 \right)
 \end{equation}
-With the orientation of the magnetic field choosing downward as positive,$\theta_B$ is the magnetic field  inclination angle. 
+This gives;
+\begin{equation}
+   \mathbf{\hat{x}'}=\left(
+    \begin{array}{c}
+  \sin\phi\sin\theta\sin\theta_B\\ 	
 
+-\sin\phi*\sin\theta_B\cos\theta - \cos\phi\
+cos\theta_B\\ 
+
+    \sin\phi\sin\theta\cos\theta_B\\
+\end{array} 
+\right) 
+\end{equation} 
+
+\begin{equation}
+   \mathbf{\hat{y}'}=\left(
+    \begin{array}{c}
+  (-\sin\phi\sin\theta_B\cos\theta - \cos\phi\cos\theta_B)\cos\phi - \sin^2\phi\sin^2\theta\cos\theta_B\\ 
+
+\sin^2\phi\sin\theta\cos\theta\cos\theta_B - \sin\phi\sin\theta\sin\theta_B\cos\phi\\
+
+
+-(-\sin\phi\sin\theta_B\cos\theta - \cos\phi\cos\theta_B)\sin\phi\cos\theta + \sin^2\phi\sin^2\theta\sin\theta_B\\
+\end{array} 
+\right) 
+\end{equation}
+With the orientation of the magnetic field taking  down i.e. pointing to the center of the earth, as positive,$\theta_B$ is the magnetic field  inclination angle. 
+
+
+\begin{align*}
+T_{\mbox{det  to shower plane co-or transformation}} &= \left[\begin{array}{ccc}
+  \mathbf{\hat{x}'} _{1} & \mathbf{\hat{x}'} _{2} & \mathbf{\hat{x}'} _{3} \\
+  \mathbf{\hat{y}'} _{1} & \mathbf{\hat{y}'} _{2} & \mathbf{\hat{y}'} _{3}\\
+  \mathbf{\hat{z}'} _{1} &\mathbf{\hat{z}'} _{2} & \mathbf{\hat{z}'} _{3} \\
+\end{array}\right]
+\begin{bmatrix}
+  x  \\
+  y  \\
+  z
+\end{bmatrix} 
+= \begin{bmatrix}
+  x'  \\
+  y'  \\
+  z'
+\end{bmatrix}
+\end{align*}
 
 \end{document}
 \grid
